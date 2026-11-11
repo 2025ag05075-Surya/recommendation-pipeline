@@ -80,8 +80,8 @@ src/training/              models (popularity, SVD CF, hybrid) + MLflow training
 src/evaluation/            metrics + evaluation + comparison table
 dags/recommendation_flow.py   Prefect flow (task dependencies, retries, schedule)
 data/errors/               rejected rows and full issue logs
-reports/                   validation report, feature catalog, model comparison, split info
-docs/                      architecture diagram, Prefect run screenshots, final report
+reports/                   validation report, feature catalog, model comparison
+results/                   architecture diagram, Prefect run screenshots, final report
 tests/                     pytest suite
 ```
 
@@ -92,7 +92,7 @@ tests/                     pytest suite
 | Validation | nulls, duplicates, data types, rating range, timestamp format/range, referential integrity. **error** = row rejected; **warning** = kept and repaired later | `data/errors/*`, `reports/validation_report.md` |
 | Preparation | type casting, median imputation, standardised IDs/strings, de-dup `(user,item)` keep latest, **time-based split** (last 20% of time = test) | `train/test.parquet`, `reports/split_info.json` |
 | Transformation | user activity summary, item popularity, sparse user-item matrix, item-genre matrix (train only) | `data/processed/*` |
-| Features | 8 user + 9 item + 3 interaction features, one `FeatureStore` for training and prediction | `data/features/*`, `reports/feature_catalog.md` |
+| Features | 8 user + 8 item + 3 interaction features, one `FeatureStore` for training and prediction | `data/features/*`, `reports/feature_catalog.md` |
 | Training | Popularity baseline, SVD collaborative filtering, Hybrid (CF + genre affinity + popularity); params/artifacts to MLflow | `models/*.pkl` |
 | Evaluation | Precision@10, Recall@10, NDCG@10, Coverage, Diversity, RMSE, MAE; metrics logged back to MLflow | `reports/model_comparison.md/.csv/.png` |
 
