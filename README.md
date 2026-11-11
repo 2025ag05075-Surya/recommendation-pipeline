@@ -11,7 +11,7 @@ them, and orchestrates everything with Prefect. Experiments are tracked in MLflo
 > and set `ingestion.source: csv` in `configs/config.yaml`.
 
 ## Architecture
-![architecture](docs/architecture.png)
+![architecture](results/architecture.png)
 
 `Ingestion -> Validation -> Preparation -> Transformation -> Feature Management -> Training -> Evaluation`, wrapped in a Prefect flow.
 
@@ -97,6 +97,6 @@ tests/                     pytest suite
 | Evaluation | Precision@10, Recall@10, NDCG@10, Coverage, Diversity, RMSE, MAE; metrics logged back to MLflow | `reports/model_comparison.md/.csv/.png` |
 
 
-Design decisions, metric definitions and limitations are in `docs/final_report.pdf`.
+Design decisions, metric definitions and limitations are in `reports/Final_report.pdf`.
 
 Screenshots of successful Prefect, MLflow and pipeline runs are in the [`results/`](results/) folder.
