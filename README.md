@@ -11,7 +11,7 @@ them, and orchestrates everything with Prefect. Experiments are tracked in MLflo
 > and set `ingestion.source: csv` in `configs/config.yaml`.
 
 ## Architecture
-![architecture](results/architecture.png)
+![architecture](results/Architecture.png)
 
 `Ingestion -> Validation -> Preparation -> Transformation -> Feature Management -> Training -> Evaluation`, wrapped in a Prefect flow.
 
