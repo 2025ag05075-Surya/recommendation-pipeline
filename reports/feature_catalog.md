@@ -1,0 +1,25 @@
+# Feature Catalog
+
+All features are computed from the **train split only**, as of the last train timestamp, and are served identically to training and prediction through `FeatureStore` (`src/features/feature_store.py`). Offline store: Parquet files in `data/features/`.
+
+| Entity | Feature | Type | Description | Computation |
+|---|---|---|---|---|
+| user | `user_avg_rating` | float | Mean rating the user has given | mean(rating) over user's train interactions |
+| user | `user_rating_std` | float | Spread of the user's ratings (0 if one rating) | std(rating), NaN->0 |
+| user | `user_activity_count` | int | Number of interactions by the user | count(interactions) |
+| user | `user_positive_ratio` | float | Share of the user's ratings that are 'liked' (>= threshold) | mean(rating >= 4) |
+| user | `user_days_since_last_interaction` | float | Recency of the user's latest activity | (as_of - max(timestamp)) in days |
+| user | `user_tenure_days` | float | How long the user has been registered | (as_of - signup_date) in days |
+| user | `user_preferred_category` | str | Genre the user likes most | most frequent genre among liked items (all items if none liked) |
+| user | `user_age` | int | Age (median-imputed when missing/invalid) | from cleaned users table |
+| item | `item_popularity` | int | Number of interactions the item received | count(interactions) |
+| item | `item_popularity_pct` | float | Popularity percentile in [0,1] | rank(item_popularity)/n_items |
+| item | `item_avg_rating` | float | Raw mean rating of the item | mean(rating) |
+| item | `item_avg_rating_smoothed` | float | Bayesian-damped mean rating (robust for rarely-rated items) | (sum + m*global_mean)/(n + m), m=10 |
+| item | `item_positive_ratio` | float | Share of ratings that are 'liked' | mean(rating >= 4) |
+| item | `item_age_years` | float | Age of the item at as-of date | as_of.year - release_year |
+| item | `item_days_since_last_interaction` | float | Recency of last interaction with the item | (as_of - max(timestamp)) in days |
+| item | `item_n_genres` | int | Number of genres on the item | len(genres) |
+| interaction | `user_genre_affinity` | float | How well the item's genres match the user's genre profile | dot(user_genre_profile, item_genre_multi_hot) / n_item_genres |
+| interaction | `is_preferred_category` | int | 1 if the item carries the user's preferred category | user_preferred_category in item.genres |
+| interaction | `expected_rating_baseline` | float | Bias-style prior rating for (user, item) | user_avg + item_avg_smoothed - global_mean, clipped to [1,5] |

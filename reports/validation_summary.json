@@ -1,0 +1,152 @@
+{
+  "users": {
+    "rows_in": 2020,
+    "rows_valid": 2000,
+    "rows_rejected": 20,
+    "rejection_rate_pct": 0.99,
+    "issues_by_rule": [
+      {
+        "column": "age",
+        "rule": "incorrect_dtype",
+        "severity": "warning",
+        "count": 7
+      },
+      {
+        "column": "age",
+        "rule": "missing_value",
+        "severity": "warning",
+        "count": 61
+      },
+      {
+        "column": "age",
+        "rule": "out_of_range",
+        "severity": "warning",
+        "count": 13
+      },
+      {
+        "column": "gender",
+        "rule": "missing_value",
+        "severity": "warning",
+        "count": 40
+      },
+      {
+        "column": "signup_date",
+        "rule": "invalid_timestamp",
+        "severity": "warning",
+        "count": 10
+      },
+      {
+        "column": "user_id",
+        "rule": "duplicate_row",
+        "severity": "error",
+        "count": 20
+      }
+    ]
+  },
+  "items": {
+    "rows_in": 808,
+    "rows_valid": 800,
+    "rows_rejected": 8,
+    "rejection_rate_pct": 0.99,
+    "issues_by_rule": [
+      {
+        "column": "category",
+        "rule": "missing_value",
+        "severity": "warning",
+        "count": 16
+      },
+      {
+        "column": "genres",
+        "rule": "missing_value",
+        "severity": "warning",
+        "count": 16
+      },
+      {
+        "column": "item_id",
+        "rule": "duplicate_row",
+        "severity": "error",
+        "count": 8
+      },
+      {
+        "column": "release_year",
+        "rule": "incorrect_dtype",
+        "severity": "warning",
+        "count": 8
+      },
+      {
+        "column": "title",
+        "rule": "missing_value",
+        "severity": "warning",
+        "count": 8
+      }
+    ]
+  },
+  "interactions": {
+    "rows_in": 108951,
+    "rows_valid": 103289,
+    "rows_rejected": 5662,
+    "rejection_rate_pct": 5.2,
+    "issues_by_rule": [
+      {
+        "column": "item_id",
+        "rule": "referential_integrity",
+        "severity": "error",
+        "count": 544
+      },
+      {
+        "column": "rating",
+        "rule": "incorrect_dtype",
+        "severity": "error",
+        "count": 218
+      },
+      {
+        "column": "rating",
+        "rule": "invalid_rating",
+        "severity": "error",
+        "count": 877
+      },
+      {
+        "column": "rating",
+        "rule": "missing_value",
+        "severity": "error",
+        "count": 539
+      },
+      {
+        "column": "timestamp",
+        "rule": "invalid_timestamp_format",
+        "severity": "error",
+        "count": 282
+      },
+      {
+        "column": "timestamp",
+        "rule": "missing_value",
+        "severity": "error",
+        "count": 280
+      },
+      {
+        "column": "timestamp",
+        "rule": "timestamp_out_of_range",
+        "severity": "error",
+        "count": 530
+      },
+      {
+        "column": "user_id",
+        "rule": "duplicate_row",
+        "severity": "error",
+        "count": 1610
+      },
+      {
+        "column": "user_id",
+        "rule": "missing_value",
+        "severity": "error",
+        "count": 361
+      },
+      {
+        "column": "user_id",
+        "rule": "referential_integrity",
+        "severity": "error",
+        "count": 541
+      }
+    ]
+  }
+}

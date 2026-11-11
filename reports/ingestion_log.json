@@ -1,0 +1,37 @@
+{
+  "ingested_at_utc": "2026-11-10T16:21:24.438368+00:00",
+  "source": "synthetic",
+  "tables": {
+    "users": {
+      "rows": 2020,
+      "columns": [
+        "user_id",
+        "age",
+        "gender",
+        "signup_date"
+      ],
+      "md5": "719c46adf689cbda749784d5179881b7"
+    },
+    "items": {
+      "rows": 808,
+      "columns": [
+        "item_id",
+        "title",
+        "category",
+        "genres",
+        "release_year"
+      ],
+      "md5": "7f2dc69fe0025888a17d54ca78eb48cc"
+    },
+    "interactions": {
+      "rows": 108951,
+      "columns": [
+        "user_id",
+        "item_id",
+        "rating",
+        "timestamp"
+      ],
+      "md5": "80607e8061688d2c0585ec76b08a9ac9"
+    }
+  }
+}

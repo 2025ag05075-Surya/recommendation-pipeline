@@ -1,0 +1,9 @@
+row_id,item_id,title,category,genres,release_year,reject_reasons
+802,I0107,Title 107,Animation,Animation,2023,duplicate_row
+803,I0736,Title 736,Drama,Drama|Thriller,2023,duplicate_row
+804,I0630,Title 630,Drama,Drama|Fantasy,2018,duplicate_row
+805,I0556,Title 556,Comedy,Comedy|Thriller,2019,duplicate_row
+806,I0017,Title 17,SciFi,SciFi,2011,duplicate_row
+807,I0419,Title 419,Drama,Drama,1994,duplicate_row
+808,I0515,Title 515,Romance,Romance|Thriller|Documentary,2001,duplicate_row
+809,I0794,Title 794,Fantasy,Fantasy|Adventure,2009,duplicate_row

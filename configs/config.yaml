@@ -1,0 +1,56 @@
+# Central configuration -- every stage reads from here so runs are reproducible.
+seed: 42
+
+paths:
+  raw: data/raw
+  processed: data/processed
+  features: data/features
+  errors: data/errors
+  models: models
+  reports: reports
+
+# Source: "synthetic" (generated, MovieLens-style) or "csv" (use the files already in data/raw)
+ingestion:
+  source: synthetic
+  regenerate: true
+
+synthetic:
+  n_users: 2000
+  n_items: 800
+  avg_interactions_per_user: 55
+  start_date: "2023-01-01"
+  end_date: "2025-06-30"
+  defect_rate: 0.01          # share of rows that get a deliberately injected defect
+
+validation:
+  rating_min: 1
+  rating_max: 5
+  age_min: 13
+  age_max: 100
+  release_year_min: 1900
+  release_year_max: 2026
+  min_timestamp: "2020-01-01"
+  max_timestamp: "2025-12-31"   # fixed (not "now") so validation is deterministic
+  allowed_genders: ["M", "F", "O"]
+
+split:
+  test_fraction: 0.2            # most recent 20% of interactions (time-based split)
+
+evaluation:
+  k: 10
+  relevance_threshold: 4.0      # rating >= 4 counts as a relevant (liked) item
+
+models:
+  popularity:
+    min_ratings_smoothing: 10   # Bayesian damping for item mean rating
+  svd_cf:
+    n_factors: 40
+    n_iter: 10
+  hybrid:
+    w_cf: 0.6
+    w_genre: 0.3
+    w_pop: 0.1
+
+mlflow:
+  tracking_uri: "sqlite:///mlflow.db"
+  experiment_name: "recommendation-pipeline"

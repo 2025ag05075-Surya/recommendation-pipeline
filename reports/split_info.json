@@ -1,0 +1,18 @@
+{
+  "cutoff_timestamp": "2025-04-13 03:52:51.400000",
+  "n_users": 2000,
+  "n_items": 800,
+  "n_interactions": 103289,
+  "n_train": 82631,
+  "n_test": 20658,
+  "train_range": [
+    "2023-01-03 13:07:19",
+    "2025-04-13 03:49:39"
+  ],
+  "test_range": [
+    "2025-04-13 03:57:40",
+    "2025-06-29 23:56:59"
+  ],
+  "test_users_unseen_in_train": 0,
+  "sparsity_pct": 93.54
+}
